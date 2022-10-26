@@ -1,4 +1,4 @@
-# Django_Eshop
+# DjangoNotesApp
 # Introduction
 
 Svetainė skirta naudoti kaip užrašinę.
