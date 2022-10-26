@@ -12,7 +12,6 @@
                 <th class="catsp" scope="col">Num.</th>
                 <th class="catsp" scope="col">Category name</th>
                 <th class="catsp" scope="col">Action</th>
-                <th class="catsp" scope="col">Filter</th>
             </tr>
             </tr>
             </thead>
@@ -25,11 +24,6 @@
                             <a href="{% url 'category-update' category.pk %}">Edt</a>
                             <a href="{% url 'category-delete' category.pk %}">Delete</a>
                         </th>
-
-                        <th>
-                        <a href="note/{{category.pk}}">{{category.pk}}</a>
-                        </th>
-
                     </tr>
                 {% endfor %}
 
