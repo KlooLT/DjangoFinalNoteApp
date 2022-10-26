@@ -1,0 +1,15 @@
+{% extends 'application/main.html' %}
+{% load static %}
+{% block content %}
+
+<h3>Add new category </h3>
+<a href="{% url 'notes' %}">Back</a>
+<form method="POST" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+         <div>
+     </div>
+    <input type="submit" value="Submit">
+</form>
+
+{% endblock content %}

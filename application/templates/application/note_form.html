@@ -1,0 +1,16 @@
+{% extends 'application/main.html' %}
+{% load static %}
+{% block content %}
+
+<h3>Note form</h3>
+<a href="{% url 'notes' %}">Back</a>
+<form method="POST" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+         <div class="col-lg-4">
+              <img class="thumbnail" src="{{Note.imageURL}}">
+     </div>
+    <input type="submit" value="Submit">
+</form>
+
+{% endblock content %}

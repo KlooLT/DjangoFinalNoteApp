@@ -1,0 +1,43 @@
+{% extends 'application/main.html' %}
+{% load static %}
+{% block content %}
+
+
+<div>
+    <div>
+        <table>
+            <thead>
+            <a href="{% url 'notes' %}">Back</a>
+            <tr>
+                <th class="catsp" scope="col">Num.</th>
+                <th class="catsp" scope="col">Category name</th>
+                <th class="catsp" scope="col">Action</th>
+                <th class="catsp" scope="col">Filter</th>
+            </tr>
+            </tr>
+            </thead>
+            <tbody>
+                {% for category in categories %}
+                    <tr>
+                        <th>{{forloop.counter}}</th>
+                        <th>{{category.name}}</th>
+                        <th>
+                            <a href="{% url 'category-update' category.pk %}">Edt</a>
+                            <a href="{% url 'category-delete' category.pk %}">Delete</a>
+                        </th>
+
+                        <th>
+                        <a href="note/{{category.pk}}">{{category.pk}}</a>
+                        </th>
+
+                    </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+{% endblock content %}

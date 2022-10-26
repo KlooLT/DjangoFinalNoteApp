@@ -1,0 +1,15 @@
+{% extends 'application/main.html' %}
+{% load static %}
+{% block content %}
+<h2>Delete category:</h2>
+    <div class="content-section">
+    <form method="POST">
+        {% csrf_token %}
+            <h2>Please confirm category delete</h2>
+        <div >
+            <button type="submit">Delete</button>
+            <a href="{% url 'notes' %}">Go back</a>
+        </div>
+    </form>
+    </div>
+{% endblock content %}

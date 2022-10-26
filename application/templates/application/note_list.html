@@ -1,0 +1,54 @@
+{% extends 'application/main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="hdb">
+    <div>
+        <h1>Hi! {{request.user}}</h1>
+        <a href="{% url 'notes' %}">Home</a>
+    </div>
+    <form method="GET">
+        <input type="text" name="search-area" value="{{search_input}}">
+        <input type="submit" value="Search">
+    </form>
+
+    {% if request.user.is_authenticated %}
+    <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+    <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+</div>
+
+
+<h1>My notes list</h1>
+<a class="atxt" href="{% url 'note-create' %}">Add note</a>
+<a class="atxt" href="{% url 'category-create' %}">Add category</a>
+<a class="atxt" href="{% url 'category' %}">Category Edit or Delete</a>
+
+
+{% for note in notes %}
+{% if note.image %}
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h2 class="card-title">{{note.title}}</h2>
+      <a href="{% url 'note' note.pk %}">
+  <img class="card-img-top" src="{{note.image.url}}" alt="Card image cap">
+      </a>
+    <p class="card-text">{{note.description}}</p>
+  </div>
+{% endif %}
+  <ul class="list-group list-group-flush">
+      <h3>Category:</h3>
+    <li class="list-group-item">{{ note.category }}</li>
+  </ul>
+  <div class="card-body">
+    <a href="{% url 'note-update' note.id %}">Update</a>
+    <a href="{% url 'note-delete' note.id %}">Delete</a>
+  </div>
+</div>
+{% empty %}
+<h3>No notes in list</h3>
+{% endfor %}
+
+{% endblock content %}
+

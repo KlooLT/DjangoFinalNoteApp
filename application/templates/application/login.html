@@ -1,0 +1,16 @@
+{% extends 'application/main.html' %}
+{% load static %}
+{% block content %}
+
+<h1>Login</h1>
+
+<form method="POST">
+  {% csrf_token %}
+  {{form.as_p}}
+  <input type="submit" value="Login">
+</form>
+
+
+<p>Sign up <a href="{% url 'register' %}">Sign up</a></p>
+
+{% endblock content %}

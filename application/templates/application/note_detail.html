@@ -1,0 +1,17 @@
+{% extends 'application/main.html' %}
+{% load static %}
+{% block content %}
+
+<h1>Note: {{note}}</h1>
+ {% if note.image %}
+      <a href="{% url 'note' note.pk %}">
+        <img src="{{note.image.url}}" class="card-img-top" alt="...">
+          <a>{{note.description}}</a>
+      </a>
+<a> Category: {{ note.category }}</a>
+
+{% endif %}
+
+<a href="{% url 'notes' %}">Back</a>
+
+{% endblock content %}
